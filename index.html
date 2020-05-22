@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <body id = "body">
+  <audio controls id = "music">
+  <source src="music/music1.mp3" type="audio/mpeg">
+</audio>
+    <img id = "image" src="photos/Noor1.jpg">
+    <button id = "button1" onclick = "sequence()">Click Me</button>
+    <p id="ILOVE">I love</p>
+    <p id="NONO">Nono</p>
+    
+    <style>
+    #body {
+background-color: rgb(216, 235, 241);
+}
+#ILOVE {
+  left: -2000px;
+  transition-duration: 2s;
+  transform: none;
+  position: relative;
+  text-align: center;
+  font-size: 100px;
+  color:rgb(233, 102, 211);
+}
+#NONO {
+  bottom: -2000px;
+  transition-duration: 2.5s;
+  transform: none;
+  position: relative;
+  text-align: center;
+  font-size: 100px;
+  color:rgb(233, 102, 211);
+
+}
+#button1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 200px;
+  position: relative;
+  font-size: 40px;
+  color: #ffffff;
+  background-color: #525252;
+  font-family: serif;
+  font-style: normal;
+  border-style: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 40px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#button1:hover {
+  color: #525252;
+  background-color: #ffffff;  
+}
+img {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 600px;
+  height: 600px;
+  transition-timing-function: linear;
+  object-fit: cover;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 5px solid white;
+}
+#music {
+  opacity: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+}
+    </style>
+    
+        <script>
+    photos = ["photos/Noor1.jpg", "photos/Noor2.jpg", "photos/Noor3.jpg", "photos/Noor4.jpg", "photos/Noor5.jpg", "photos/Noor6.jpg"
+    , "photos/Noor7.jpg", "photos/Noor8.jpg", "photos/Noor9.jpg", "photos/Noor10.jpg", "photos/Noor11.jpg", "photos/Noor12.jpg", "photos/Noor13.jpg", "photos/Noor14.jpg"
+    , "photos/Noor15.jpg", "photos/Noor16.jpg", "photos/Noor17.jpg", "photos/Noor18.jpg", "photos/Noor19.jpg", "photos/Noor20.jpg", "photos/Noor21.jpg", "photos/Noor22.jpg"]
+///random image selector
+let photo = photos[Math.floor(Math.random()*photos.length)];
+///image preloader
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+}
+
+preloadImage("photos/Noor1.jpg")
+preloadImage("photos/Noor2.jpg")
+preloadImage("photos/Noor3.jpg")
+preloadImage("photos/Noor4.jpg")
+preloadImage("photos/Noor5.jpg")
+preloadImage("photos/Noor6.jpg")
+preloadImage("photos/Noor7.jpg")
+preloadImage("photos/Noor8.jpg")
+preloadImage("photos/Noor9.jpg")
+preloadImage("photos/Noor10.jpg")
+preloadImage("photos/Noor11.jpg")
+preloadImage("photos/Noor12.jpg")
+preloadImage("photos/Noor13.jpg")
+preloadImage("photos/Noor14.jpg")
+preloadImage("photos/Noor15.jpg")
+preloadImage("photos/Noor16.jpg")
+preloadImage("photos/Noor17.jpg")
+preloadImage("photos/Noor18.jpg")
+preloadImage("photos/Noor19.jpg")
+preloadImage("photos/Noor20.jpg")
+preloadImage("photos/Noor21.jpg")
+preloadImage("photos/Noor22.jpg")
+
+var Start = "no"
+function sequence(){
+  Start = "yes"
+  button1.parentNode.removeChild(button1)
+  initiate()
+}
+function initiate(){
+if (Start == "yes"){ 
+ILOVE = document.getElementById("ILOVE")
+NONO = document.getElementById("NONO")
+setTimeout(function(){
+ILOVE.style.transform = "translate(2000px, 0px)"
+NONO.style.transform = "translate(0px, -2000px)"
+}, 700); 
+setTimeout(function(){
+document.body.style.background = "black"
+ILOVE.innerHTML = "SO"
+NONO.innerHTML = "MUCH"
+ILOVE.style.transitionDuration = "0s"
+NONO.style.transitionDuration = "0s"
+}, 3800); 
+setTimeout(function(){
+document.body.style.background = "white"
+ILOVE.style.fontSize = "110px"
+NONO.style.fontSize = "110px"
+}, 3900); 
+setTimeout(function(){
+document.body.style.background = "black"
+ILOVE.style.fontSize = "120px"
+NONO.style.fontSize = "120px"
+}, 4000); 
+setTimeout(function(){
+document.body.style.background = "white"
+ILOVE.style.fontSize = "130px"
+NONO.style.fontSize = "130px"
+}, 4100); 
+setTimeout(function(){
+document.body.style.background = "black"
+ILOVE.style.fontSize = "140px"
+NONO.style.fontSize = "140px"
+}, 4200); 
+setTimeout(function(){
+ILOVE.style.display = "none"
+NONO.style.display = "none"
+image.style.visibility = "visible"
+image.style.transitionDuration = "120s"
+image.style.transform = "rotate(2000deg)"
+imagechanger()
+}, 4300); 
+function imagechanger(){
+
+  setTimeout(function(){
+  photo = photos[Math.floor(Math.random()*photos.length)];
+  document.getElementById("image").src = photo
+  imagechanger()
+  BcgChanger()
+  }, 2000); 
+}
+function EndColor(){
+    r = Math.random() * (254 - 0) + 0;
+    g = Math.random() * (254 - 0) + 0;
+    b = Math.random() * (254 - 0) + 0;
+    Color2 = 'rgb('+r+','+g+', '+b+')';
+}
+function BcgChanger(){
+  document.body.style.transitionDuration = "2s"
+  EndColor()
+  document.getElementById("image").style.borderColor = Color2
+  EndColor()
+  document.body.style.backgroundColor = Color2
+  setTimeout(() => {
+  BcgChanger()
+  }, 1000
+  )
+}
+var myMusic = document.getElementById("music")
+function playAudio() {
+  myMusic.play();
+}
+
+function pauseAudio() {
+  myMusic.pause();
+}
+
+///don't mess after these
+}
+}
+    </script>
+    
+  </body>
+</html>
